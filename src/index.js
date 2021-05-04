@@ -54,10 +54,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
   });
-  const likeButton = document.querySelector('.like-btn')
-  likeButton.addEventListener('click', () =>{
-    console.log("Hey")
-  })
 })
 //DOM LOADED
 
@@ -68,37 +64,57 @@ document.addEventListener("DOMContentLoaded", () => {
 
 const getStuff = () => {
   fetch(`http://localhost:3000/toys`)
-    .then((result) => result.json())
-    .then((data) => {
+  .then((result) => result.json())
+  .then((data) => {
+    
+    data.forEach(element => {
+      toyCollectionArray.push(element)
+      
+      
+      const div = document.createElement('div')
+      const p = document.createElement('p')
+      const h2 = document.createElement('h2')
+      const button = document.createElement('button')
+      const img = document.createElement('img')
+      
+      
+      div.className = "card"
+      p.innerHTML = `${element.likes} Likes`
+      h2.innerHTML = `${element.name}`
+      button.className = "like-btn"
+      button.id = `${element.id}`
+      button.innerHTML = "Like"
+      img.src = `${element.image}`
+      img.className = "toy-avatar"
+      
+      
+    
+      button.addEventListener('click', (event) =>{
+        event.preventDefault()
 
-      data.forEach(element => {
-        toyCollectionArray.push(element)
-
-
-        const div = document.createElement('div')
-        const p = document.createElement('p')
-        const h2 = document.createElement('h2')
-        const button = document.createElement('button')
-        const img = document.createElement('img')
-
-
-        div.className = "card"
-        p.innerHTML = `${element.likes} Likes`
-        h2.innerHTML = `${element.name}`
-        button.className = "like-btn"
-        button.id = `${element.id}`
-        button.innerHTML = "Like"
-        img.src = `${element.image}`
-        img.className = "toy-avatar"
+        const objectPatch = {
+          method: 'PATCH',
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+          },
+          body: JSON.stringify({
+            "likes": element.likes+1
+          })
+        }
+    
+        fetch(`http://localhost:3000/toys/${element.id}`, objectPatch)
 
 
 
-        div.append(h2)
-        div.append(img)
-        div.append(p)
-        div.append(button)
-        toyCollection.append(div)
-
+      })
+      
+      div.append(h2)
+      div.append(img)
+      div.append(p)
+      div.append(button)
+      toyCollection.append(div)
+      
 
       });
       return data
