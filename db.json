@@ -10,25 +10,25 @@
       "id": 2,
       "name": "Buzz Lightyear",
       "image": "http://www.pngmart.com/files/6/Buzz-Lightyear-PNG-Transparent-Picture.png",
-      "likes": 6
+      "likes": 8
     },
     {
       "id": 3,
       "name": "Mr. Potato Head",
       "image": "https://vignette.wikia.nocookie.net/universe-of-smash-bros-lawl/images/d/d8/Mr-potato-head-toy-story.gif/revision/latest?cb=20151129131217",
-      "likes": 5
+      "likes": 6
     },
     {
       "id": 4,
       "name": "Slinky Dog",
       "image": "https://www.freeiconspng.com/uploads/slinky-png-transparent-1.png",
-      "likes": 6
+      "likes": 7
     },
     {
       "id": 5,
       "name": "Rex",
       "image": "http://umich.edu/~chemh215/W11HTML/SSG5/ssg5.2/FRex.png",
-      "likes": 1
+      "likes": 2
     },
     {
       "id": 6,
@@ -65,6 +65,12 @@
       "image": "http://www.pngmart.com/files/3/Toy-Story-Alien-PNG-File.png",
       "likes": 1,
       "id": 11
+    },
+    {
+      "name": "Encarna",
+      "image": "https://i.pinimg.com/originals/80/f6/3e/80f63e43e558563d5a077dbe2aae8ef3.jpg",
+      "likes": 1,
+      "id": 12
     }
   ]
 }
